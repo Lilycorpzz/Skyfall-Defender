@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class HealthSystem : MonoBehaviour
@@ -24,7 +25,14 @@ public class HealthSystem : MonoBehaviour
         if (currentHealth <= 0)
         {
             Debug.Log("Player Defeated");
-            // Trigger Game Over logic here
+            SceneManager.LoadScene("Credit");
         }
+    }
+
+    // Method to restore health
+    public void RestoreHealth(int amount)
+    {
+        currentHealth = Mathf.Min(currentHealth + amount, maxHealth);
+        healthBar.value = currentHealth;
     }
 }

@@ -123,6 +123,59 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &1319492502
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1319492504}
+  - component: {fileID: 1319492503}
+  m_Layer: 0
+  m_Name: PickUpManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1319492503
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1319492502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f185feb5d2fcc349ab003f134f3720c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pickupPrefabs:
+  - {fileID: 6217501935933917496, guid: 2a6a3545db89e1b489e961a919a0f034, type: 3}
+  - {fileID: 6217501935933917496, guid: c34e73aaac2bcf6488e4744c341efad8, type: 3}
+  - {fileID: 6217501935933917496, guid: 2f4fffebc78e26d4180f787513d55435, type: 3}
+  spawnInterval: 10
+  spawnRange: 8
+  minHeight: 10
+  maxHeight: 15
+  pickupLifetime: 8
+--- !u!4 &1319492504
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1319492502}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -20.258142, y: 13.804802, z: 34.362514}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1343985943
 GameObject:
   m_ObjectHideFlags: 0
@@ -408,6 +461,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1973454519}
+  - component: {fileID: 1973454520}
   m_Layer: 0
   m_Name: FallingObjectSpawner
   m_TagString: Untagged
@@ -430,3 +484,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1973454520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1973454517}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3be8efe295b7d8046ab7011a7c6c2056, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectPrefabs:
+  - {fileID: 5400425703357708940, guid: 36f0f90be9e66984e8bfbf63ffe0a501, type: 3}
+  spawnInterval: 1
+  spawnRange: 8
+  minHeight: 10
+  maxHeight: 15
+  initialSpeed: 5
+  speedIncreaseRate: 0.1
+  spawnIntervalDecreaseRate: 0.01
+  objectLifetime: 4
+  damage: 10
