@@ -26,11 +26,11 @@ public class PlayerShield : MonoBehaviour
         shieldVisual.SetActive(true); // Show the shield
 
         // Deflect falling objects by destroying them if they hit the shield
-        Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("FallingObjects"), true);
+        Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Obstacle"), true);
 
         yield return new WaitForSeconds(duration);
 
-        Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("FallingObjects"), false);
+        Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Obstacle"), false);
 
         shieldVisual.SetActive(false); // Hide the shield
         shieldActive = false;
@@ -38,7 +38,7 @@ public class PlayerShield : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (shieldActive && other.CompareTag("FallingObject"))
+        if (shieldActive && other.CompareTag("Obstacle"))
         {
             // Destroy any falling object that collides with the shield
             Destroy(other.gameObject);
