@@ -8,6 +8,7 @@ TagManager:
   - HealthPickup
   - SlowTimePickup
   - ShieldPickup
+  - Final Boss
   layers:
   - Default
   - TransparentFX

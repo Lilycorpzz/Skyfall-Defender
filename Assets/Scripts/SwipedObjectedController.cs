@@ -7,7 +7,7 @@ public class SwipedObjectedController : MonoBehaviour
     public GameObject[] objectPrefabs;// Hold an array containing all the fall objects(Including pickups).
     public float swipeForce = 500f;
     // Time before the object despawns after being clicked
-    public float despawnTime = 2f;
+    public float despawnTime = 1f;
 
     private Rigidbody rb;
 
