@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3375757072718933827}
   - component: {fileID: -1244269422528511146}
   m_Layer: 3
-  m_Name: Cube
+  m_Name: Creat
   m_TagString: fall object
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -63,7 +63,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 06bb8ffde0edc384bbc6ab790ed1a581, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
