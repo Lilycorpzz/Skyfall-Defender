@@ -381,7 +381,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45721761c3348964a9cf924ef94737d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shieldVisual: {fileID: 8415875421956502347, guid: 9254a1e935f8d2a4b98b5a3982c76dd0, type: 3}
+  shieldObject: {fileID: 8415875421956502347, guid: 9254a1e935f8d2a4b98b5a3982c76dd0, type: 3}
+  shieldDuration: 5
 --- !u!1 &1078637763
 GameObject:
   m_ObjectHideFlags: 0
@@ -605,7 +606,7 @@ MonoBehaviour:
   - {fileID: 6217501935933917496, guid: c34e73aaac2bcf6488e4744c341efad8, type: 3}
   - {fileID: 6217501935933917496, guid: 2f4fffebc78e26d4180f787513d55435, type: 3}
   spawnInterval: 10
-  spawnRange: 3
+  spawnRange: 1
   minHeight: 10
   maxHeight: 15
   pickupLifetime: 8
