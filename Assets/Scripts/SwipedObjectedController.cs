@@ -27,7 +27,7 @@ public class SwipedObjectedController : MonoBehaviour
             RaycastHit hit;
 
             // Check if the ray hits an object with the "fall object" tag
-            if (Physics.Raycast(ray, out hit) && hit.collider.CompareTag("fall object"))
+            if (Physics.Raycast(ray, out hit) && hit.collider.CompareTag("fall object"))//Add more collider objects.
             {
                 // Apply a swipe force to the object
                 ApplySwipeForce(hit.collider.gameObject);
