@@ -622,7 +622,7 @@ MonoBehaviour:
   - {fileID: 6217501935933917496, guid: 2a6a3545db89e1b489e961a919a0f034, type: 3}
   - {fileID: 6217501935933917496, guid: c34e73aaac2bcf6488e4744c341efad8, type: 3}
   - {fileID: 6217501935933917496, guid: 2f4fffebc78e26d4180f787513d55435, type: 3}
-  spawnInterval: 20
+  spawnInterval: 10
   spawnRange: 1
   minHeight: 10
   maxHeight: 15
@@ -1316,8 +1316,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectPrefabs:
   - {fileID: 5400425703357708940, guid: 36f0f90be9e66984e8bfbf63ffe0a501, type: 3}
-  - {fileID: 6217501935933917496, guid: 2a6a3545db89e1b489e961a919a0f034, type: 3}
-  - {fileID: 6217501935933917496, guid: c34e73aaac2bcf6488e4744c341efad8, type: 3}
   spawnInterval: 1
   spawnRange: 3
   minHeight: 10
