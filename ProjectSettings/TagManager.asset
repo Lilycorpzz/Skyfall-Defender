@@ -8,6 +8,8 @@ TagManager:
   - HealthPickup
   - SlowTimePickup
   - ShieldPickup
+  - BasketBall
+  - BaseBall
   layers:
   - Default
   - TransparentFX

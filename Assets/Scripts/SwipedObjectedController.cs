@@ -1,22 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SwipedObjectedController : MonoBehaviour
 {
-    public GameObject[] objectPrefabs;// Hold an array containing all the fall objects(Including pickups).
-    public float swipeForce = 500f;
-    // Time before the object despawns after being clicked
+    public float swipeForce = 1000f;
     public float despawnTime = 2f;
-
-    private Rigidbody rb;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        // Get the Rigidbody component attached to the falling object
-        rb = GetComponent<Rigidbody>();
-    }
 
     void Update()
     {
@@ -26,19 +16,57 @@ public class SwipedObjectedController : MonoBehaviour
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
 
-            // Check if the ray hits an object with the "fall object" tag
-            if (Physics.Raycast(ray, out hit) && hit.collider.CompareTag("fall object"))
+            // Check if the ray hits an object with the appropriate tags
+            if (Physics.Raycast(ray, out hit))
             {
-                // Apply a swipe force to the object
-                ApplySwipeForce(hit.collider.gameObject);
+                GameObject hitObject = hit.collider.gameObject;
+
+                if (hitObject.CompareTag("fall object") || hitObject.CompareTag("BasketBall") || hitObject.CompareTag("BaseBall"))
+                {
+                    // Apply a swipe force to the object
+                    ApplySwipeForce(hitObject);
+
+                    if (hitObject.CompareTag("BasketBall"))
+                    {
+                        // Add score when a "fall object" is swiped
+                        ScoreManager.Instance.AddScore(5); // Add 1 points for each swiped object
+                    }
+                    else if (hitObject.CompareTag("BaseBall"))
+                    {
+                        // Add score when a "fall object" is swiped
+                        ScoreManager.Instance.AddScore(10); // Add 1 points for each swiped object
+                    }
+                    else
+                    {
+                        // Add score when a "fall object" is swiped
+                        ScoreManager.Instance.AddScore(1); // Add 1 points for each swiped object
+                    }
+                 
+
+                    // Destroy the fall object instantly
+                   // Destroy(hitObject);
+
+                }
+                else if (hitObject.CompareTag("HealthPickup"))
+                {
+                    hitObject.GetComponent<HealthBoostPickup>().OnHitByRaycast(GameObject.FindWithTag("Player"));
+                }
+                else if (hitObject.CompareTag("ShieldPickup"))
+                {
+                    hitObject.GetComponent<UmbrellaPickup>().OnHitByRaycast(GameObject.FindWithTag("Player"));
+                }
+                else if (hitObject.CompareTag("SlowTimePickup"))
+                {
+                    hitObject.GetComponent<PowerUpSlowTime>().OnHitByRaycast();
+                }
             }
         }
     }
 
     // Function to apply the swipe force and start despawning the object
-    void ApplySwipeForce(GameObject objectPrefabs)
+    public void ApplySwipeForce(GameObject objectPrefab)
     {
-        Rigidbody objectRb = objectPrefabs.GetComponent<Rigidbody>();
+        Rigidbody objectRb = objectPrefab.GetComponent<Rigidbody>();
 
         if (objectRb != null)
         {
@@ -47,17 +75,16 @@ public class SwipedObjectedController : MonoBehaviour
             objectRb.AddForce(swipeDirection * swipeForce);
 
             // Start the despawn coroutine
-            StartCoroutine(DespawnObject(objectPrefabs));
+            StartCoroutine(DespawnObject(objectPrefab));
+        }
+        // Coroutine to despawn the object after a delay
+        IEnumerator DespawnObject(GameObject objectPrefab)
+        {
+            yield return new WaitForSeconds(despawnTime);
+            Destroy(objectPrefab);
         }
     }
 
-    // Coroutine to despawn the object after a delay
-    IEnumerator DespawnObject(GameObject objectPrefabs)
-    {
-        yield return new WaitForSeconds(despawnTime);
-
-        // Destroy the object after the delay
-        Destroy(objectPrefabs);
-    }
+    
 }
 

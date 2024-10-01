@@ -6,20 +6,18 @@ public class UmbrellaPickup : MonoBehaviour
 {
     public float shieldDuration = 5f; // How long the shield lasts
 
-    void OnTriggerEnter(Collider other)
+    // Function to activate the shield when hit by a raycast
+    public void OnHitByRaycast(GameObject player)
     {
-        // Assuming the player is tagged "Player"
-        if (other.CompareTag("Player"))
+        // Find the PlayerShield component attached to the player and activate the shield
+        PlayerShield playerShield = player.GetComponent<PlayerShield>();
+
+        if (playerShield != null)
         {
-            // Activate the player's shield
-            PlayerShield playerShield = other.GetComponent<PlayerShield>();
+            playerShield.ActivateShield(shieldDuration);
+            Debug.Log("Shield Activated for " + shieldDuration + " seconds!");
 
-            if (playerShield != null)
-            {
-                playerShield.ActivateShield(shieldDuration);
-            }
-
-            // Destroy the pickup after use
+            // Destroy the umbrella pickup after use
             Destroy(gameObject);
         }
     }
