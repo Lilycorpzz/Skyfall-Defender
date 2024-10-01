@@ -8,7 +8,7 @@ public class PickupManager : MonoBehaviour
     public GameObject[] pickupPrefabs;
 
     public float spawnInterval = 10f;  // Time between spawns
-    public float spawnRange = 8f;      // X and Z range for spawning
+    public float spawnRange = 1f;      // X and Z range for spawning
     public float minHeight = 10f;      // Minimum Y position where pickups spawn
     public float maxHeight = 15f;      // Maximum Y position where pickups spawn
     public float pickupLifetime = 8f;  // Destroy the pickup after this time if not collected
@@ -54,4 +54,5 @@ public class PickupManager : MonoBehaviour
         // Destroy the pickup after a set time if not collected
         Destroy(spawnedPickup, pickupLifetime);
     }
+
 }

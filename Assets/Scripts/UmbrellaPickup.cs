@@ -4,24 +4,23 @@ using UnityEngine;
 
 public class UmbrellaPickup : MonoBehaviour
 {
-    public float shieldDuration = 5f; // Duration the umbrella shield lasts
-    private bool shieldActive = false;
+    public float shieldDuration = 5f; // How long the shield lasts
 
     void OnTriggerEnter(Collider other)
     {
+        // Assuming the player is tagged "Player"
         if (other.CompareTag("Player"))
         {
+            // Activate the player's shield
             PlayerShield playerShield = other.GetComponent<PlayerShield>();
 
             if (playerShield != null)
             {
-                // Activate the shield and start the timer
                 playerShield.ActivateShield(shieldDuration);
-                Debug.Log("Umbrella Shield Activated!");
-
-                // Destroy the umbrella pickup after being used
-                Destroy(gameObject);
             }
+
+            // Destroy the pickup after use
+            Destroy(gameObject);
         }
     }
 }

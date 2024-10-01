@@ -7,7 +7,7 @@ public class FallingObjects : MonoBehaviour
     // Array of prefabs for different object types
     public GameObject[] objectPrefabs;
     public float spawnInterval = 1f;  // Time between spawns
-    public float spawnRange = 8f;     // X and Z range for spawning
+    public float spawnRange = 3f;     // X and Z range for spawning
     public float minHeight = 10f;     // Y position where objects spawn
     public float maxHeight = 15f;     // Varying spawn height to add randomness
 
@@ -16,7 +16,7 @@ public class FallingObjects : MonoBehaviour
     public float spawnIntervalDecreaseRate = 0.01f; // How much spawn interval decreases over time
     public float objectLifetime = 4f; // Object gets destroyed after 4 seconds if it’s still in the scene
 
-    public int damage = 10;
+    //public int damage = 10;
 
     private float timer = 0f;
     private float currentSpeed;
@@ -69,13 +69,13 @@ public class FallingObjects : MonoBehaviour
         Destroy(spawnedObject, objectLifetime);
     }
 
-    void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            other.GetComponent<HealthSystem>().TakeDamage(damage);
-            Destroy(gameObject); // Destroy the object after impact
-        }
-    }
+    //void OnTriggerEnter(Collider other)
+    //{
+    //    if (other.CompareTag("Player"))
+    //    {
+    //        other.GetComponent<HealthSystem>().TakeDamage(damage);
+    //        Destroy(gameObject); // Destroy the object after impact
+    //    }
+    //}
 
 }

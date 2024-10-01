@@ -4,44 +4,32 @@ using UnityEngine;
 
 public class PlayerShield : MonoBehaviour
 {
-    public GameObject shieldVisual; // Visual representation of the shield (umbrella)
-    private bool shieldActive = false;
+    public GameObject shieldObject;   // Reference to the shield object
+    public float shieldDuration = 5f; // How long the shield lasts
 
-    void Start()
-    {
-        shieldVisual.SetActive(false); // Hide the shield initially
-    }
-
+    // Method to activate the shield
     public void ActivateShield(float duration)
     {
-        if (!shieldActive)
-        {
-            StartCoroutine(ShieldRoutine(duration));
-        }
+        StartCoroutine(ShieldRoutine(duration));
     }
 
+    // Coroutine to handle shield behavior over time
     private IEnumerator ShieldRoutine(float duration)
     {
-        shieldActive = true;
-        shieldVisual.SetActive(true); // Show the shield
+        // Activate shield
+        shieldObject.SetActive(true);
 
-        // Deflect falling objects by destroying them if they hit the shield
-        Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("FallingObjects"), true);
+        // Set the player’s layer to the shielded layer
+        // Ensure the layer number is between 0 and 31
+        int shieldedLayer = 8; // Example layer for shielded player (ensure this is valid)
+        gameObject.layer = shieldedLayer;
 
+        // Wait for the duration of the shield
         yield return new WaitForSeconds(duration);
 
-        Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("FallingObjects"), false);
-
-        shieldVisual.SetActive(false); // Hide the shield
-        shieldActive = false;
+        // Deactivate shield and reset layer
+        shieldObject.SetActive(false);
+        gameObject.layer = 0; // Reset to default layer (usually 0 is the default layer)
     }
 
-    void OnTriggerEnter(Collider other)
-    {
-        if (shieldActive && other.CompareTag("FallingObject"))
-        {
-            // Destroy any falling object that collides with the shield
-            Destroy(other.gameObject);
-        }
-    }
 }
