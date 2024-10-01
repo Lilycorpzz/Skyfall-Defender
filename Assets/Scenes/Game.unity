@@ -249,6 +249,7 @@ GameObject:
   - component: {fileID: 463354064}
   - component: {fileID: 463354063}
   - component: {fileID: 463354062}
+  - component: {fileID: 463354067}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -351,6 +352,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &463354067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 463354061}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172429878c003c74a96180be1a49bb51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectPrefabs:
+  - {fileID: 5400425703357708940, guid: 36f0f90be9e66984e8bfbf63ffe0a501, type: 3}
+  - {fileID: 6217501935933917496, guid: 2a6a3545db89e1b489e961a919a0f034, type: 3}
+  - {fileID: 6217501935933917496, guid: 2f4fffebc78e26d4180f787513d55435, type: 3}
+  swipeForce: 500
+  despawnTime: 2
 --- !u!1 &1078637763
 GameObject:
   m_ObjectHideFlags: 0
@@ -1267,6 +1286,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectPrefabs:
   - {fileID: 5400425703357708940, guid: 36f0f90be9e66984e8bfbf63ffe0a501, type: 3}
+  - {fileID: 6217501935933917496, guid: 2a6a3545db89e1b489e961a919a0f034, type: 3}
+  - {fileID: 6217501935933917496, guid: c34e73aaac2bcf6488e4744c341efad8, type: 3}
   spawnInterval: 1
   spawnRange: 8
   minHeight: 10

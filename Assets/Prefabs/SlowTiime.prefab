@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 7526996753479600879}
   m_Layer: 0
   m_Name: SlowTiime
-  m_TagString: Untagged
+  m_TagString: fall object
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

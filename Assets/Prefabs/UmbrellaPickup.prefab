@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 8024183006946505650}
   m_Layer: 0
   m_Name: UmbrellaPickup
-  m_TagString: Untagged
+  m_TagString: fall object
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
