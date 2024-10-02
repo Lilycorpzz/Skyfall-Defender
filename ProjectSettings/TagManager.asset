@@ -10,6 +10,7 @@ TagManager:
   - ShieldPickup
   - BasketBall
   - BaseBall
+  - Final Boss
   layers:
   - Default
   - TransparentFX
