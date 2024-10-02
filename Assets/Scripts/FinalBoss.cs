@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class FinalBoss : MonoBehaviour
 {
+    [SerializeField] private AudioSource audioSource;
     public GameObject finalBoss;        // Final boss object to spawn
     public float swipeForce = 500f;
     public float bossSpawnTime = 60f;   // Time after which the final boss spawns
@@ -64,6 +65,7 @@ public class FinalBoss : MonoBehaviour
             // Check if the ray hits an object with the "fall object" tag
             if (Physics.Raycast(ray, out hit) && hit.collider.CompareTag("Final Boss"))//Add more collider objects.
             {
+                audioSource.Play();
                 // Apply a swipe force to the object
                 ApplySwipeForce(hit.collider.gameObject);
             }

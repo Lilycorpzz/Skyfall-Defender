@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class SwipedObjectedController : MonoBehaviour
 {
+    [SerializeField] private AudioSource audioSource;
     public float swipeForce = 1000f;
     public float despawnTime = 2f;
 
@@ -28,16 +29,18 @@ public class SwipedObjectedController : MonoBehaviour
 
                     if (hitObject.CompareTag("BasketBall"))
                     {
+                        audioSource.Play();
                         // Add score when a "fall object" is swiped
                         ScoreManager.Instance.AddScore(5); // Add 1 points for each swiped object
                     }
                     else if (hitObject.CompareTag("BaseBall"))
                     {
+                        audioSource.Play();
                         // Add score when a "fall object" is swiped
                         ScoreManager.Instance.AddScore(10); // Add 1 points for each swiped object
                     }
                     else
-                    {
+                    {   audioSource.Play();
                         // Add score when a "fall object" is swiped
                         ScoreManager.Instance.AddScore(1); // Add 1 points for each swiped object
                     }
