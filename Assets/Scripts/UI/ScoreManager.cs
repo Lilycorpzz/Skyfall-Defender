@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class ScoreManager : MonoBehaviour
@@ -9,6 +10,12 @@ public class ScoreManager : MonoBehaviour
     public int score = 0; // The player's score
     public TextMeshProUGUI scoreText; // UI text to display the score in the Game scene
 
+
+    void Start()
+    {
+        // Ensure the score is properly displayed at the start
+        UpdateScoreText();
+    }
     void Awake()
     {
         // Singleton pattern: Only one instance of ScoreManager exists
@@ -44,5 +51,8 @@ public class ScoreManager : MonoBehaviour
     {
         score = 0;
         UpdateScoreText();
+
+        Scene currentScene = SceneManager.GetActiveScene(); // Get the active scene
+        SceneManager.LoadScene(currentScene.name);
     }
 }
