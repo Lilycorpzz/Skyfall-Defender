@@ -90,7 +90,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 341161104704157722, guid: f53238210e2f8d843ada45c9154c745a, type: 3}
       propertyPath: m_Name
-      value: FinalBossAcorn
+      value: FinalBossAcorn Variant
       objectReference: {fileID: 0}
     - target: {fileID: 4095633775556014869, guid: f53238210e2f8d843ada45c9154c745a, type: 3}
       propertyPath: m_Enabled
@@ -102,15 +102,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8580083155575613017, guid: f53238210e2f8d843ada45c9154c745a, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.8281436
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8580083155575613017, guid: f53238210e2f8d843ada45c9154c745a, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.8281436
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8580083155575613017, guid: f53238210e2f8d843ada45c9154c745a, type: 3}
       propertyPath: m_LocalScale.z
-      value: 1.8281436
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8580083155575613017, guid: f53238210e2f8d843ada45c9154c745a, type: 3}
       propertyPath: m_LocalPosition.x
